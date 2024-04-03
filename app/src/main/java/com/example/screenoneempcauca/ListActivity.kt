@@ -80,6 +80,7 @@ fun ListItemRow(item: String){
             .padding(horizontal = 18.dp, vertical = 5.dp)
     ){
 
+
         Row (){
             Text(modifier = Modifier
                 .weight(1f)
@@ -101,6 +102,7 @@ fun ListItemRow(item: String){
 @Preview (showBackground = true)
 @Composable
 fun PantallaPreview(){
+
     val datos : List<String> = listOf(
         "Economia amigable",
         "Servicios profesionales",

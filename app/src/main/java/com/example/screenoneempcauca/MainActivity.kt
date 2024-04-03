@@ -1,5 +1,6 @@
 package com.example.screenoneempcauca
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.ComponentActivity
@@ -21,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalMapOf
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -49,7 +51,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Menu(){
+    val mContext = LocalContext.current
      Column(
+
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -138,7 +142,7 @@ fun Menu(){
          }
 
 
-         Row (){
+         Row {
              OutlinedButton(
                  onClick = { /*TODO*/ },
                  border = BorderStroke(1.dp, Color.White)
@@ -152,14 +156,17 @@ fun Menu(){
                  Spacer(modifier = Modifier.width(100.dp))
                  /*Spacer(modifier = Modifier.width(30.dp))
                  Text(text = "Menu")
-                 Spacer(modifier = Modifier.width(30.dp))*/
+                 Spacer(modifier = Mo difier.width(30.dp))*/
 
 
 
              }
+             Spacer(modifier = Modifier.width(10.dp))
 
              OutlinedButton(
-                 onClick = { /*TODO*/ },
+                 onClick = {
+                     mContext.startActivity(Intent(mContext, ListActivity::class.java))
+                           },
                  border = BorderStroke(1.dp, Color.White)
              ) {
                  Column(
@@ -171,7 +178,10 @@ fun Menu(){
                          painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
                          contentDescription = "Menu"
                      )
-                     Text(text = "Menu")
+                     Text(text = "Menu",
+                         color = MaterialTheme.colorScheme.secondary,
+                         style = MaterialTheme.typography.bodyLarge
+                     )
 
                  }
              }
