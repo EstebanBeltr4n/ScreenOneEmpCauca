@@ -137,12 +137,39 @@ fun Menu(){
 
 
          Row (){
-             OutlinedButton(onClick = { /*TODO*/ }) {
-                 Spacer(modifier = Modifier.width(30.dp))
-                 Text(text = "Perfil")
+             OutlinedButton(
+                 onClick = { /*TODO*/ },
+                 border = BorderStroke(1.dp, Color.White)
+             ) {
+                 Column {
+                     Image(painter = painterResource(id = R.drawable.logo_png),
+                         contentDescription ="Menu" )
+
+
+                 }
+                 Spacer(modifier = Modifier.width(100.dp))
+                 /*Spacer(modifier = Modifier.width(30.dp))
+                 Text(text = "Menu")
+                 Spacer(modifier = Modifier.width(30.dp))*/
 
 
 
+             }
+
+             OutlinedButton(
+                 onClick = { /*TODO*/ },
+                 border = BorderStroke(1.dp, Color.White)
+             ) {
+                 Column(
+                     horizontalAlignment = Alignment.CenterHorizontally
+                 ) {
+                     Image(
+                         painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
+                         contentDescription = "Menu"
+                     )
+                     Text(text = "Menu")
+
+                 }
              }
          }
 
