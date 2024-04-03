@@ -79,6 +79,7 @@ fun ListItemRow(item: String){
             .background(color = MaterialTheme.colorScheme.secondary)
             .padding(horizontal = 18.dp, vertical = 5.dp)
     ){
+
         Row (){
             Text(modifier = Modifier
                 .weight(1f)
