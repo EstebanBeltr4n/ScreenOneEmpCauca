@@ -60,7 +60,9 @@ fun Menu(){
          )
 
 
-        Text(text = "Bienvenido a EmprenToCauca")
+        Text(text = "Bienvenido Sebastian",color = Color.Black,
+            fontSize =  20.sp
+        )
          Spacer(modifier = Modifier.height(16.dp))
          Image(painter = painterResource(id =R.drawable.expocaucapublicidad ),
              contentDescription = "Lo nuevo",
@@ -172,6 +174,8 @@ fun Menu(){
                  }
              }
          }
+         Text(text = "Emprendimiento del Cauca")
+         Text(text = """Apoyamos la ecoonomia de la region""")
 
     }
 
