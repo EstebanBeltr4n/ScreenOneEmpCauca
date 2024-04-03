@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
 class ListActivity : ComponentActivity(){
@@ -36,5 +38,30 @@ class ListActivity : ComponentActivity(){
 
             }
         }
+    }
+}
+
+@Composable
+fun Pantalla(datos: List<String>){
+
+
+}
+
+@Preview
+@Composable
+fun PantallaPreview(){
+    val datos : List<String> = listOf(
+        "Economia amigable",
+        "Servicios profesionales",
+        "Salud y bienestar",
+        "Deportes",
+        "Arte y entretenimiento",
+        "Educacion y formacion",
+        "Moda y beleza",
+        "Hogar y decoracion"
+    )
+    ScreenOneEmpCaucaTheme (true){
+        Pantalla(datos)
+
     }
 }
