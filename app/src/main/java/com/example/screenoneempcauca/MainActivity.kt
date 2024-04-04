@@ -61,8 +61,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-
-                    Menu()
+                    LoginApp()
+                    //Menu()
                     
 
                 }
@@ -132,16 +132,7 @@ fun Menu(){
          Spacer(modifier = Modifier.size(60.dp))
 
 
-         /*SearchBar(
-             query = "Search",
-             onQueryChange = {},
-             onSearch = {
-                 Toast.makeText(ctx,"Search",Toast.LENGTH_SHORT).show()
-             },
-             active = true,
-             onActiveChange = {}) {
 
-         }*/
 
 
 
@@ -232,24 +223,14 @@ fun Menu(){
 
 
          Row {
-             OutlinedButton(
-                 onClick = { /*TODO*/ },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column {
-                     Image(painter = painterResource(id = R.drawable.logo_png),
-                         contentDescription ="Menu" )
-
-
-                 }
+             Column {
+                 Image(
+                     painter = painterResource(id = R.drawable.logo_png),
+                     contentDescription = "Menu"
+                 )
                  Spacer(modifier = Modifier.width(100.dp))
-                 /*Spacer(modifier = Modifier.width(30.dp))
-                 Text(text = "Menu")
-                 Spacer(modifier = Mo difier.width(30.dp))*/
-
-
-
              }
+
              Spacer(modifier = Modifier.width(10.dp))
 
              OutlinedButton(
