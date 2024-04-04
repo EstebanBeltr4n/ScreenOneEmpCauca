@@ -1,8 +1,11 @@
 package com.example.screenoneempcauca
 
 import android.content.Intent
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -11,36 +14,56 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.screenoneempcauca.R.string.placeholder_search
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ScreenOneEmpCaucaTheme {
+
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //Greeting("Android")
+
+
                     Menu()
+
 
                 }
             }
@@ -48,9 +71,49 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun  SearchBar(
+    modifier: Modifier=Modifier
+){
+    TextField(
+        value = "",
+        onValueChange = {},
+        leadingIcon = {
+                      Icon(
+                          imageVector = Icons.Default.Search,
+                          contentDescription = null
+                      )
+        },
+        colors = TextFieldDefaults.colors(
+            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            focusedContainerColor = MaterialTheme.colorScheme.surface
+        ),
+        placeholder = {
+                      Text(stringResource(placeholder_search))
+        },
 
+        modifier= modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp)
+    )
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun SearchBarPreview() {
+    ScreenOneEmpCaucaTheme {
+        SearchBar()
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Menu(){
+
+    //val ctx= LocalContext.current
     val mContext = LocalContext.current
      Column(
 
@@ -62,20 +125,46 @@ fun Menu(){
              color = Color.Black,
              fontSize =  40.sp
          )
+         Spacer(modifier = Modifier.size(20.dp))
+
+        //Here Search Bar
+
+         Spacer(modifier = Modifier.size(60.dp))
+
+
+         /*SearchBar(
+             query = "Search",
+             onQueryChange = {},
+             onSearch = {
+                 Toast.makeText(ctx,"Search",Toast.LENGTH_SHORT).show()
+             },
+             active = true,
+             onActiveChange = {}) {
+
+         }*/
+
 
 
         Text(text = "Bienvenido Sebastian",color = Color.Black,
             fontSize =  20.sp
         )
+
+
+
+
          Spacer(modifier = Modifier.height(16.dp))
-         Image(painter = painterResource(id =R.drawable.expocaucapublicidad ),
+         Image(
+             painter = painterResource(id =R.drawable.expocaucapublicidad ),
              contentDescription = "Lo nuevo",
+             contentScale = ContentScale.Crop,
              modifier = Modifier
                  .height(400.dp)
                  .width(400.dp)
+                 .clip(RoundedCornerShape(16.dp))
+
          )
-         Spacer(modifier = Modifier.height(16.dp))
-//Barra de busqueda
+
+
          Spacer(modifier = Modifier.height(16.dp))
 
          Row {
