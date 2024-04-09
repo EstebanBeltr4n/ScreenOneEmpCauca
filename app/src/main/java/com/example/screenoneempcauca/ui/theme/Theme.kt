@@ -65,6 +65,7 @@ fun ScreenOneEmpCaucaTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes2,
         content = content
     )
 }
