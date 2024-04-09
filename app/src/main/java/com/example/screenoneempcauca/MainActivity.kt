@@ -84,22 +84,22 @@ fun  SearchBar(
         value = "",
         onValueChange = {},
         leadingIcon = {
-                      Icon(
-                          imageVector = Icons.Default.Search,
-                          contentDescription = null
-                      )
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = null
+            )
         },
         colors = TextFieldDefaults.colors(
             unfocusedContainerColor = MaterialTheme.colorScheme.surface,
             focusedContainerColor = MaterialTheme.colorScheme.surface
         ),
         placeholder = {
-                      Text(stringResource(placeholder_search))
+            Text(stringResource(placeholder_search))
         },
-
-        modifier= modifier
+        modifier = modifier
             .fillMaxWidth()
             .heightIn(min = 56.dp)
+            .clip(RoundedCornerShape(16.dp)) // Ajusta el valor del radio según tus necesidades
     )
 
 }
