@@ -10,6 +10,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -64,7 +66,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     //LoginApp()
-                    Menu()
+                    //Menu()
+                    PantallaInicial()
                     
 
                 }
@@ -75,7 +78,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun  SearchBar(
-    modifier: Modifier=Modifier
+    modifier: Modifier=Modifier.padding(top=50.dp)
 ){
     TextField(
         value = "",
@@ -157,109 +160,122 @@ fun Menu(){
 
          )
 
-
-         Spacer(modifier = Modifier.height(16.dp))
-
-         Row {
-             OutlinedButton(
-                 onClick = { /*TODO*/ },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column(
-                     horizontalAlignment = Alignment.CenterHorizontally
-                 ) {
-                     Image(
-                         painter = painterResource(id = R.drawable.icons8_usuario_masculino_en_c_rculo_100),
-                         contentDescription = "Perfil"
-                     )
-                     Text(text = "Perfil")
-                 }
-             }
-
-             OutlinedButton(
-                 onClick = { /*TODO*/ },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column(
-                     horizontalAlignment = Alignment.CenterHorizontally
-                 ) {
-                     Image(
-                         painter = painterResource(id = R.drawable.icons8_comunicaci_n_100),
-                         contentDescription = "Chat"
-                     )
-                     Text(text = "Chat")
-                 }
-             }
-
-             OutlinedButton(
-                 onClick = { /*TODO*/ },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column(
-                     horizontalAlignment = Alignment.CenterHorizontally
-                 ) {
-                     Image(
-                         painter = painterResource(id = R.drawable.icons8_subir_a_la_nube_100),
-                         contentDescription = "Cargar"
-                     )
-                     Text(text = "Cargar")
-                 }
-             }
-
-             OutlinedButton(
-                 onClick = { /*TODO*/ },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column(
-                     horizontalAlignment = Alignment.CenterHorizontally
-                 ) {
-                     Image(
-                         painter = painterResource(id = R.drawable.icons8_salida_100),
-                         contentDescription = "Salir"
-                     )
-                     Text(text = "Salir")
-
-                 }
-             }
-         }
-
-
          Row {
              Column {
                  Image(
                      painter = painterResource(id = R.drawable.logo_png),
-                     contentDescription = "Menu"
+                     contentDescription = "Logo"
                  )
                  Spacer(modifier = Modifier.width(100.dp))
              }
 
              Spacer(modifier = Modifier.width(10.dp))
 
-             OutlinedButton(
-                 onClick = {
-                     mContext.startActivity(Intent(mContext, ListActivity::class.java))
-                           },
-                 border = BorderStroke(1.dp, Color.White)
-             ) {
-                 Column(
-                     horizontalAlignment = Alignment.CenterHorizontally
-                 )
-                 {
-                     
-                     Image(
-                         painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
-                         contentDescription = "Menu"
-                     )
-                     Text(text = "Menu",
-                         color = MaterialTheme.colorScheme.secondary,
-                         style = MaterialTheme.typography.bodyLarge
-                     )
 
-                 }
-             }
          }
          Text(text = "Emprendimiento del Cauca")
          Text(text = """Apoyamos la ecoonomia de la region""")
+
+
+         Spacer(modifier = Modifier.height(16.dp))
+
+         Box(modifier = Modifier
+             .fillMaxWidth()
+             .padding(bottom = 10.dp),
+             contentAlignment = Alignment.BottomCenter
+         ){
+             Row (horizontalArrangement = Arrangement.SpaceEvenly,
+                 verticalAlignment = Alignment.CenterVertically){
+
+                 OutlinedButton(
+                     onClick = { /*TODO*/ },
+                     border = BorderStroke(1.dp, Color.White)
+                 ) {
+                     Column(
+                         horizontalAlignment = Alignment.CenterHorizontally
+                     ) {
+                         Image(
+                             painter = painterResource(id = R.drawable.icons8_usuario_masculino_en_c_rculo_100),
+                             contentDescription = "Perfil"
+                         )
+                         Text(text = "Perfil")
+                     }
+                 }
+
+                 OutlinedButton(
+                     onClick = { /*TODO*/ },
+                     border = BorderStroke(1.dp, Color.White)
+                 ) {
+                     Column(
+                         horizontalAlignment = Alignment.CenterHorizontally
+                     ) {
+                         Image(
+                             painter = painterResource(id = R.drawable.icons8_comunicaci_n_100),
+                             contentDescription = "Chat"
+                         )
+                         Text(text = "Chat")
+                     }
+                 }
+
+                 OutlinedButton(
+                     onClick = {
+                         mContext.startActivity(Intent(mContext, ListActivity::class.java))
+                     },
+                     border = BorderStroke(1.dp, Color.White)
+                 ) {
+                     Column(
+                         horizontalAlignment = Alignment.CenterHorizontally
+                     )
+                     {
+
+                         Image(
+                             painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
+                             contentDescription = "Menu"
+                         )
+                         Text(text = "Menu",
+                             color = MaterialTheme.colorScheme.secondary,
+                             style = MaterialTheme.typography.bodyLarge
+                         )
+
+                     }
+                 }
+
+
+                 OutlinedButton(
+                     onClick = { /*TODO*/ },
+                     border = BorderStroke(1.dp, Color.White)
+                 ) {
+                     Column(
+                         horizontalAlignment = Alignment.CenterHorizontally
+                     ) {
+                         Image(
+                             painter = painterResource(id = R.drawable.icons8_subir_a_la_nube_100),
+                             contentDescription = "Cargar"
+                         )
+                         Text(text = "Cargar")
+                     }
+                 }
+
+                 /*OutlinedButton(
+                     onClick = { /*TODO*/ },
+                     border = BorderStroke(1.dp, Color.White)
+                 ) {
+                     Column(
+                         horizontalAlignment = Alignment.CenterHorizontally
+                     ) {
+                         Image(
+                             painter = painterResource(id = R.drawable.icons8_salida_100),
+                             contentDescription = "Salir"
+                         )
+                         Text(text = "Salir")
+
+                     }
+                 }*/
+             }
+         }
+
+
+
 
     }
 
@@ -268,9 +284,9 @@ fun Menu(){
 
 @Preview(showBackground = true)
 @Composable
-fun MenuPreview() {
+fun PantallaInicialPreview() {
     ScreenOneEmpCaucaTheme {
-        Menu()
+        PantallaInicial()
     }
 }
 
@@ -278,18 +294,24 @@ fun MenuPreview() {
 fun PantallaInicial(){
     Scaffold(
         topBar = {
+
             BarraSuperior()
         },
         bottomBar = {
-
+            BarraContenido()
         }
     ) { innerPadding ->
         Text(text = "", Modifier.padding(innerPadding))
-
     }
 }
 
 @Composable
 fun BarraSuperior(){
+
     SearchBar()
+}
+
+@Composable
+fun BarraContenido(){
+    Menu()
 }
