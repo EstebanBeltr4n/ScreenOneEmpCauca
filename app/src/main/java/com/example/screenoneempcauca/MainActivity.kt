@@ -37,6 +37,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,6 +54,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.screenoneempcauca.R.string.placeholder_search
+import com.example.screenoneempcauca.screens.BarraInferior
+import com.example.screenoneempcauca.screens.BarraSuperior
+import com.example.screenoneempcauca.screens.ContenidoPrincipal
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -114,173 +121,6 @@ fun SearchBarPreview() {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun Menu(){
-
-    //val ctx= LocalContext.current
-    val mContext = LocalContext.current
-     Column(
-
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-
-    ) {
-         Text(text = "Busqueda",
-             color = Color.Black,
-             fontSize =  40.sp
-         )
-         Spacer(modifier = Modifier.size(20.dp))
-
-        //Here Search Bar
-
-         Spacer(modifier = Modifier.size(60.dp))
-
-
-
-
-
-
-        Text(text = "Bienvenido Sebastian",color = Color.Black,
-            fontSize =  20.sp
-        )
-
-
-
-
-         Spacer(modifier = Modifier.height(16.dp))
-         Image(
-             painter = painterResource(id =R.drawable.expocaucapublicidad ),
-             contentDescription = "Lo nuevo",
-             contentScale = ContentScale.Crop,
-             modifier = Modifier
-                 .height(400.dp)
-                 .width(400.dp)
-                 .clip(RoundedCornerShape(16.dp))
-
-         )
-
-         Row {
-             Column {
-                 Image(
-                     painter = painterResource(id = R.drawable.logo_png),
-                     contentDescription = "Logo"
-                 )
-                 Spacer(modifier = Modifier.width(100.dp))
-             }
-
-             Spacer(modifier = Modifier.width(10.dp))
-
-
-         }
-         Text(text = "Emprendimiento del Cauca")
-         Text(text = """Apoyamos la ecoonomia de la region""")
-
-
-         Spacer(modifier = Modifier.height(16.dp))
-
-         Box(modifier = Modifier
-             .fillMaxWidth()
-             .padding(bottom = 10.dp),
-             contentAlignment = Alignment.BottomCenter
-         ){
-             Row (horizontalArrangement = Arrangement.SpaceEvenly,
-                 verticalAlignment = Alignment.CenterVertically){
-
-                 OutlinedButton(
-                     onClick = { /*TODO*/ },
-                     border = BorderStroke(1.dp, Color.White)
-                 ) {
-                     Column(
-                         horizontalAlignment = Alignment.CenterHorizontally
-                     ) {
-                         Image(
-                             painter = painterResource(id = R.drawable.icons8_usuario_masculino_en_c_rculo_100),
-                             contentDescription = "Perfil"
-                         )
-                         Text(text = "Perfil")
-                     }
-                 }
-
-                 OutlinedButton(
-                     onClick = { /*TODO*/ },
-                     border = BorderStroke(1.dp, Color.White)
-                 ) {
-                     Column(
-                         horizontalAlignment = Alignment.CenterHorizontally
-                     ) {
-                         Image(
-                             painter = painterResource(id = R.drawable.icons8_comunicaci_n_100),
-                             contentDescription = "Chat"
-                         )
-                         Text(text = "Chat")
-                     }
-                 }
-
-                 OutlinedButton(
-                     onClick = {
-                         mContext.startActivity(Intent(mContext, ListActivity::class.java))
-                     },
-                     border = BorderStroke(1.dp, Color.White)
-                 ) {
-                     Column(
-                         horizontalAlignment = Alignment.CenterHorizontally
-                     )
-                     {
-
-                         Image(
-                             painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
-                             contentDescription = "Menu"
-                         )
-                         Text(text = "Menu",
-                             color = MaterialTheme.colorScheme.secondary,
-                             style = MaterialTheme.typography.bodyLarge
-                         )
-
-                     }
-                 }
-
-
-                 OutlinedButton(
-                     onClick = { /*TODO*/ },
-                     border = BorderStroke(1.dp, Color.White)
-                 ) {
-                     Column(
-                         horizontalAlignment = Alignment.CenterHorizontally
-                     ) {
-                         Image(
-                             painter = painterResource(id = R.drawable.icons8_subir_a_la_nube_100),
-                             contentDescription = "Cargar"
-                         )
-                         Text(text = "Cargar")
-                     }
-                 }
-
-                 /*OutlinedButton(
-                     onClick = { /*TODO*/ },
-                     border = BorderStroke(1.dp, Color.White)
-                 ) {
-                     Column(
-                         horizontalAlignment = Alignment.CenterHorizontally
-                     ) {
-                         Image(
-                             painter = painterResource(id = R.drawable.icons8_salida_100),
-                             contentDescription = "Salir"
-                         )
-                         Text(text = "Salir")
-
-                     }
-                 }*/
-             }
-         }
-
-
-
-
-    }
-
-  
-}
 
 @Preview(showBackground = true)
 @Composable
@@ -292,27 +132,26 @@ fun PantallaInicialPreview() {
 
 @Composable
 fun PantallaInicial(){
+    var textoBusqueda by rememberSaveable {
+        mutableStateOf("")
+    }
+
     Scaffold(
         topBar = {
-
-            BarraSuperior()
+            BarraSuperior(texto = textoBusqueda, onTextoBusquedaChange = {textoBusqueda = it})
         },
         bottomBar = {
-            BarraContenido()
+            BarraInferior(
+                onClickPerfil = { /*TODO*/ },
+                onClickChat = { /*TODO*/ },
+                onClickMenu = { /*TODO*/ },
+                onClickCargar = { /*TODO*/ })
         }
     ) { innerPadding ->
-        Text(text = "", Modifier.padding(innerPadding))
+        ContenidoPrincipal(modifier = Modifier.padding(innerPadding))
     }
 }
 
-@Composable
-fun BarraSuperior(){
 
-    SearchBar()
-}
 
-@Composable
-fun BarraContenido(){
-    //LoginSesion({}, {})
-    Menu()
-}
+
