@@ -1,6 +1,7 @@
 package com.example.screenoneempcauca
 
 import android.graphics.drawable.Icon
+import android.os.Bundle
 import android.widget.EditText
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -38,6 +39,8 @@ import androidx.compose.ui.unit.dp
 
 
 import android.widget.Toast
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -47,6 +50,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.draw.clip
 
@@ -59,8 +64,14 @@ import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
 
+
+
+
+
 val defaultPadding = 16.dp
 val itemSpacing = 8.dp
+
+
 
 @Composable
 fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
@@ -83,16 +94,21 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
             .padding(defaultPadding),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.logo_png),
+            contentDescription = "Logo"
+        )
+        Spacer(modifier = Modifier.width(100.dp))
         HeaderText(
-            text = "Login",
+            text = "Iniciar sesión",
             modifier = Modifier
                 .padding(vertical = defaultPadding)
-                .align(alignment = Alignment.Start)
+                .align(alignment = Alignment.CenterHorizontally)
         )
         LoginTextField(
             value = userName,
             onValueChange = setUsername,
-            labelText = "Username",
+            labelText = "Usuario",
             leadingIcon = Icons.Default.Person,
             modifier = Modifier.fillMaxWidth()
         )
@@ -100,7 +116,7 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
         LoginTextField(
             value = password,
             onValueChange = setPassword,
-            labelText = "Password",
+            labelText = "Contraseña",
             leadingIcon = Icons.Default.Lock,
             modifier = Modifier.fillMaxWidth(),
             keyboardType = KeyboardType.Password,
@@ -116,10 +132,10 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Checkbox(checked = checked, onCheckedChange = onCheckedChange)
-                Text("Remember me")
+                Text("Recordarme")
             }
             TextButton(onClick = {}) {
-                Text("Forgot Password?")
+                Text("¿Olvido su contraseña?")
             }
         }
         Spacer(Modifier.height(itemSpacing))
@@ -128,23 +144,18 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
             modifier = Modifier.fillMaxWidth(),
             enabled = isFieldsEmpty
         ) {
-            Text("Login")
+            Text("Ingresar")
         }
         AlternativeLoginOptions(
             onIconClick = { index ->
                 when (index) {
                     0 -> {
-                        Toast.makeText(context, "Instagram Login Click", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Google Login - Click", Toast.LENGTH_SHORT).show()
                     }
 
-                    1 -> {
-                        Toast.makeText(context, "Github Login Click", Toast.LENGTH_SHORT).show()
 
-                    }
 
-                    2 -> {
-                        Toast.makeText(context, "Google Login Click", Toast.LENGTH_SHORT).show()
-                    }
+
                 }
             },
             onSignUpClick = onSignUpClick,
@@ -157,6 +168,7 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
 }
 
 
+
 @Composable
 fun AlternativeLoginOptions(
     onIconClick: (index: Int) -> Unit,
@@ -164,16 +176,16 @@ fun AlternativeLoginOptions(
     modifier: Modifier = Modifier,
 ) {
     val iconList = listOf(
-        R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_foreground,
+
+        R.drawable.icons8_logo_de_google_48,
+
     )
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Or Sign in With")
+        Text("O inicia sesión con:")
         Row(horizontalArrangement = Arrangement.SpaceEvenly) {
             iconList.forEachIndexed { index, iconResId ->
                 Icon(
@@ -190,16 +202,7 @@ fun AlternativeLoginOptions(
             }
         }
         Spacer(Modifier.height(itemSpacing))
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text("Don't have an Account?")
-            Spacer(Modifier.height(itemSpacing))
-            TextButton(onClick = onSignUpClick) {
-                Text("Sign Up")
-            }
-        }
+
     }
 
 }
@@ -212,6 +215,8 @@ fun PrevLoginSesion() {
         LoginSesion({}, {})
     }
 }
+
+
 
 @Composable
 fun LoginTextField(
@@ -257,6 +262,7 @@ fun PrevTextField(){
     LoginTextField(
         value = "",
         onValueChange = {},
-        labelText = "Password"
+        labelText = "Contraseña"
     )
 }
+

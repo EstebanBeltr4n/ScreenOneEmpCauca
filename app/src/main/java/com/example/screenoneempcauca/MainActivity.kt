@@ -313,6 +313,6 @@ fun BarraSuperior(){
 
 @Composable
 fun BarraContenido(){
-    LoginSesion({}, {})
-    //Menu()
+    //LoginSesion({}, {})
+    Menu()
 }
