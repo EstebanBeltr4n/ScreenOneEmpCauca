@@ -36,26 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
-class LoginScreen : ComponentActivity(){
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ScreenOneEmpCaucaTheme(true) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    LoginApp()
-
-
-                }
-
-            }
-        }
-    }
-}
 
 @Composable
 fun LoginApp(){
@@ -64,8 +45,7 @@ fun LoginApp(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
         ) {
-        Image(painter = painterResource(id =R.drawable.logo_png ),
-            contentDescription = null)
+
         Box(
             modifier = Modifier
                 .size(width = 500.dp, height = 500.dp)
@@ -77,14 +57,22 @@ fun LoginApp(){
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .height(300.dp)
-                    .width(300.dp)
-                    .clip(RoundedCornerShape(16.dp))
+                    .height(380.dp)
+                    .width(320.dp)
+                    .clip(RoundedCornerShape(30.dp))
+            )
+            Image(
+                painter = painterResource(id = R.drawable.logo_png),
+                contentDescription = null,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .size(200.dp)
             )
         }
 
 
-        Spacer(modifier = Modifier.size(20.dp))
+
+        Spacer(modifier = Modifier.size(1.dp))
 
         Text(text = "Bienvenido, aqui se apoya ",
             fontSize = 20.sp)
