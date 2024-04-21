@@ -59,5 +59,5 @@ fun BarraSuperior(
 @Preview
 @Composable
 fun BarraArribaPreview(){
-    BarraSuperior(texto = "Texto", onTextoBusquedaChange = {})
+    BarraSuperior(texto = "Busqueda", onTextoBusquedaChange = {})
 }

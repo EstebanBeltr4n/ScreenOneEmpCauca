@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.screenoneempcauca.ListActivity
+
 import com.example.screenoneempcauca.R
 
 @Composable
@@ -61,7 +61,7 @@ fun BarraInferior(
             }
         }
 
-        OutlinedButton(
+        /*OutlinedButton(
             onClick = onClickMenu,
             border = BorderStroke(1.dp, Color.White)
         ) {
@@ -80,7 +80,7 @@ fun BarraInferior(
                 )
 
             }
-        }
+        }*/
 
 
         OutlinedButton(
@@ -98,7 +98,7 @@ fun BarraInferior(
             }
         }
 
-        /*OutlinedButton(
+        OutlinedButton(
             onClick = { /*TODO*/ },
             border = BorderStroke(1.dp, Color.White)
         ) {
@@ -112,7 +112,7 @@ fun BarraInferior(
                 Text(text = "Salir")
 
             }
-        }*/
+        }
     }
 }
 

@@ -25,7 +25,7 @@ import com.example.screenoneempcauca.R
 @Composable
 fun ContenidoPrincipal(modifier: Modifier = Modifier) {
 
-    //val ctx= LocalContext.current
+
     val mContext = LocalContext.current
     Column(
         modifier = modifier.fillMaxSize(),
@@ -42,8 +42,8 @@ fun ContenidoPrincipal(modifier: Modifier = Modifier) {
             contentDescription = "Lo nuevo",
             contentScale = ContentScale.Crop,
             modifier = modifier
-                .height(200.dp)
-                .width(200.dp)
+                .height(400.dp)
+                .width(400.dp)
                 .clip(RoundedCornerShape(16.dp))
         )
 

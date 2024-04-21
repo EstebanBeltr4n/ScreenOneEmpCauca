@@ -1,5 +1,6 @@
 package com.example.screenoneempcauca.ui.theme
 
+
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -15,16 +16,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
+
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
+    background = Brown40
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40
+    tertiary = Pink40,
+    background = DarkBlue60
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -57,7 +61,7 @@ fun ScreenOneEmpCaucaTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorScheme.background.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
@@ -65,7 +69,6 @@ fun ScreenOneEmpCaucaTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        shapes = Shapes2,
         content = content
     )
 }
