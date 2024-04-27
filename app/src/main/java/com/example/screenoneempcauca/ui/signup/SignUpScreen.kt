@@ -2,6 +2,7 @@ package com.example.screenoneempcauca.ui.signup
 
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
@@ -26,12 +28,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.screenoneempcauca.R
 import com.example.screenoneempcauca.ui.components.HeaderText
 import com.example.screenoneempcauca.ui.components.LoginTextField
 import com.example.screenoneempcauca.ui.login.defaultPadding
@@ -42,8 +46,8 @@ import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 fun SignUpScreen(
     onSignUpClick: () -> Unit,
     onLoginClick: () -> Unit,
-    onPolicyClick: () -> Unit,
-    onPrivacyClick: () -> Unit,
+
+    onterminos_YCondicionesClick: () -> Unit,
 ) {
     val (firstName, onFirstNameChange) = rememberSaveable {
         mutableStateOf("")
@@ -69,41 +73,46 @@ fun SignUpScreen(
     ) {
         AnimatedVisibility(isPasswordSame) {
             Text(
-                "Password Is not Matching",
+                "la contraseña no coincide",
                 color = MaterialTheme.colorScheme.error,
             )
         }
-        HeaderText(
-            text = "Sign Up",
+        Image(
+            painter = painterResource(id = R.drawable.logo_png),
+            contentDescription = "Logo"
+        )
+        Spacer(modifier = Modifier.width(100.dp))
+        com.example.screenoneempcauca.ui.login.HeaderText(
+            text = "Registrar",
             modifier = Modifier
                 .padding(vertical = defaultPadding)
-                .align(alignment = Alignment.Start)
+                .align(alignment = Alignment.CenterHorizontally)
         )
         LoginTextField(
             value = firstName,
             onValueChange = onFirstNameChange,
-            labelText = "First Name",
+            labelText = "* Nombres y apellidos",
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(defaultPadding))
         LoginTextField(
             value = lastName,
             onValueChange = onLastNameChange,
-            labelText = "Last Name",
+            labelText = "* Rol",
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(defaultPadding))
         LoginTextField(
             value = email,
             onValueChange = onEmailChange,
-            labelText = "Email",
+            labelText = "* Email",
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(defaultPadding))
         LoginTextField(
             value = password,
             onValueChange = onPasswordChange,
-            labelText = "Password",
+            labelText = "* Contraseña",
             modifier = Modifier.fillMaxWidth(),
             keyboardType = KeyboardType.Password
         )
@@ -111,7 +120,7 @@ fun SignUpScreen(
         LoginTextField(
             value = confirmPassword,
             onValueChange = onConfirmPasswordChange,
-            labelText = "Confirm Password",
+            labelText = "* Confirma la contraseña",
             modifier = Modifier.fillMaxWidth(),
             keyboardType = KeyboardType.Password
         )
@@ -120,22 +129,18 @@ fun SignUpScreen(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val privacyText = "Privacy"
-            val policyText = "Policy"
+            val terminos_yCondicionesText = " terminos y condiciones"
+
             val annotatedString = buildAnnotatedString {
                 withStyle(SpanStyle(color = MaterialTheme.colorScheme.onBackground)) {
-                    append("I Agree with")
+                    append("Estoy de acuerdo con ")
                 }
                 append(" ")
                 withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
-                    pushStringAnnotation(tag = privacyText, privacyText)
-                    append(privacyText)
+                    pushStringAnnotation(tag = terminos_yCondicionesText, terminos_yCondicionesText)
+                    append(terminos_yCondicionesText)
                 }
-                append(" And ")
-                withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
-                    pushStringAnnotation(tag = policyText, policyText)
-                    append(policyText)
-                }
+
             }
 
             Checkbox(agree, onAgreeChange)
@@ -144,17 +149,13 @@ fun SignUpScreen(
             ) { offset ->
                 annotatedString.getStringAnnotations(offset, offset).forEach {
                     when (it.tag) {
-                        privacyText -> {
-                            Toast.makeText(context, "Privacy Text Clicked", Toast.LENGTH_SHORT)
+                        terminos_yCondicionesText -> {
+                            Toast.makeText(context, "Terminos y condiciones Text Clicked", Toast.LENGTH_SHORT)
                                 .show()
-                            onPrivacyClick()
+                            onterminos_YCondicionesClick()
                         }
 
-                        policyText -> {
-                            Toast.makeText(context, "Policy Text Clicked", Toast.LENGTH_SHORT)
-                                .show()
-                            onPolicyClick()
-                        }
+
                     }
                 }
             }
@@ -170,13 +171,13 @@ fun SignUpScreen(
             modifier = Modifier.fillMaxWidth(),
             enabled = isFieldsNotEmpty,
         ) {
-            Text("Sign Up")
+            Text("Finalizar")
         }
         Spacer(Modifier.height(defaultPadding))
-        val singTx = "Sign In"
+        val singTx = "Iniciar sesion"
         val signInAnnotation = buildAnnotatedString {
             withStyle(SpanStyle(color = MaterialTheme.colorScheme.onBackground)) {
-                append("Already have an account?")
+                append("¿Ya tienes una cuenta?")
             }
             append("  ")
             withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
@@ -191,7 +192,7 @@ fun SignUpScreen(
         ) { offset ->
             signInAnnotation.getStringAnnotations(offset, offset).forEach {
                 if (it.tag == singTx) {
-                    Toast.makeText(context, "Sign in Clicked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Iniciar sesion en Clicked", Toast.LENGTH_SHORT).show()
                     onLoginClick()
                 }
             }
@@ -205,6 +206,6 @@ fun SignUpScreen(
 @Composable
 fun PrevSignUp() {
     ScreenOneEmpCaucaTheme {
-        SignUpScreen({}, {}, {}, {})
+        SignUpScreen({}, {}, {})
     }
 }

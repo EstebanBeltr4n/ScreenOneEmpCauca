@@ -8,6 +8,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.screenoneempcauca.Route
+import com.example.screenoneempcauca.ui.components.LoginTextField
 
 @Composable
 fun PolicyScreen(onBtnClick: () -> Unit) {
@@ -18,5 +21,14 @@ fun PolicyScreen(onBtnClick: () -> Unit) {
                 Text("Finish")
             }
         }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun PolicyScreenPreview(){
+    PolicyScreen {
+        
     }
 }
