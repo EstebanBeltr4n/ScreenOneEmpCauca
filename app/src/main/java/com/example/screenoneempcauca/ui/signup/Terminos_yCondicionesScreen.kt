@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun terminos_yCondionesScreen(onBtnClick:() -> Unit){
+fun Terminos_yCondionesScreen(onBtnClick:() -> Unit){
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
         Column {
             Spacer(modifier = Modifier.size(1.dp))
@@ -38,8 +38,8 @@ fun terminos_yCondionesScreen(onBtnClick:() -> Unit){
 
 @Preview(showBackground = true)
 @Composable
-fun terminos_yCondionesPreview(){
-    terminos_yCondionesScreen {
+fun Terminos_yCondionesPreview(){
+    Terminos_yCondionesScreen {
 
     }
 

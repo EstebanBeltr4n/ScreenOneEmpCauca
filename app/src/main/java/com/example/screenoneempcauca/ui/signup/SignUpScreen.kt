@@ -47,7 +47,7 @@ fun SignUpScreen(
     onSignUpClick: () -> Unit,
     onLoginClick: () -> Unit,
 
-    onterminos_YCondicionesClick: () -> Unit,
+    onTerminos_YCondicionesClick: () -> Unit,
 ) {
     val (firstName, onFirstNameChange) = rememberSaveable {
         mutableStateOf("")
@@ -152,7 +152,7 @@ fun SignUpScreen(
                         terminos_yCondicionesText -> {
                             Toast.makeText(context, "Terminos y condiciones Text Clicked", Toast.LENGTH_SHORT)
                                 .show()
-                            onterminos_YCondicionesClick()
+                            onTerminos_YCondicionesClick()
                         }
 
 

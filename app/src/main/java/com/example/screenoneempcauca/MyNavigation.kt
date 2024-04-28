@@ -1,15 +1,20 @@
 package com.example.screenoneempcauca
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.example.screenoneempcauca.ui.HomeScreen
+import com.example.screenoneempcauca.ui.components.LoginTextField
+import com.example.screenoneempcauca.ui.login.LoginScreen
 
-import com.example.screenoneempcauca.ui.signup.terminos_yCondionesScreen
+import com.example.screenoneempcauca.ui.signup.Terminos_yCondionesScreen
 import com.example.screenoneempcauca.ui.signup.SignUpScreen
 sealed class Route {
     data class LoginScreen(val name: String = "Login") : Route()
@@ -47,7 +52,7 @@ fun MyNavigation(navHostController: NavHostController) {
                     onSignUpClick = {
                         navHostController.navigate(
                             Route.HomeScreen().name
-                        ){
+                        ) {
                             popUpTo("login_flow")
                         }
                     },
@@ -56,21 +61,18 @@ fun MyNavigation(navHostController: NavHostController) {
                             Route.LoginScreen().name
                         )
                     },
-                    onterminos_YCondicionesClick = {
+                    onTerminos_YCondicionesClick = {
                         navHostController.navigate(
-                            Route.Terminos_yCondicionesScreen.name
-                        ){
+                            Route.Terminos_yCondicionesScreen().name
+                        ) {
                             launchSingleTop = true
                         }
-                    },
+                    }
 
                 )
             }
-
-            composable(route = Route.Terminos_yCondicionesScreen().name) {
-Route.Terminos_yCondicionesScreen{}
-            }
         }
+
         composable(route = Route.HomeScreen().name) {
             HomeScreen()
         }
@@ -85,4 +87,11 @@ fun NavController.navigateToSingleTop(route: String) {
         launchSingleTop = true
         restoreState = true
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun NavigationPreview(){
+    MyNavigation(navHostController = rememberNavController())
 }
