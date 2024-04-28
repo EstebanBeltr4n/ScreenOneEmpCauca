@@ -23,12 +23,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
 
 
 @Composable
-fun LoginApp(){
+fun LoginApp(onSignUpClick: () -> Unit) {
     Column(
         modifier= Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -76,13 +77,17 @@ fun LoginApp(){
         Spacer(modifier = Modifier.size(20.dp))
 
         Row (){
-            OutlinedButton(onClick = { /*TODO*/ }) {
+            OutlinedButton(
+                onClick = { /*TODO*/ },
+                ) {
                 Text(text = "Iniciar sesion",
                     fontSize = 20.sp)
                 
             }
             Spacer(modifier = Modifier.width(20.dp))
-            OutlinedButton(onClick = { /*TODO*/ }) {
+            OutlinedButton(
+                onClick = { /*TODO*/ },
+                ) {
                 Text(text = "Crear cuenta",
                     fontSize = 20.sp)
                 
@@ -101,6 +106,8 @@ fun LoginApp(){
 @Composable
 fun LoginAppPreview(){
     ScreenOneEmpCaucaTheme {
-        LoginApp()
+        LoginApp {
+
+        }
     }
 }

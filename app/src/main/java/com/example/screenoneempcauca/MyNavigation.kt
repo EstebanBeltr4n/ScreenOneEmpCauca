@@ -22,6 +22,7 @@ sealed class Route {
     data class Terminos_yCondicionesScreen(val name:String = "Terminos") : Route()
 
     data class HomeScreen(val name: String = "Home") : Route()
+    data class LoginAppSesion(val name: String = "LoginAppSesion") : Route()
 }
 
 @Composable
@@ -30,7 +31,10 @@ fun MyNavigation(navHostController: NavHostController) {
         navController = navHostController,
         startDestination = "login_flow",
     ) {
-        navigation(startDestination = Route.LoginScreen().name, route = "login_flow") {
+        navigation(startDestination = Route.LoginAppSesion().name, route = "login_flow") {
+
+
+
             composable(route = Route.LoginScreen().name) {
                 LoginScreen(
                     onLoginClick = {

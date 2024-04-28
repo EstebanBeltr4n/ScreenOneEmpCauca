@@ -7,11 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.core.content.contentValuesOf
+import com.example.screenoneempcauca.PantallaInicial
 import com.example.screenoneempcauca.Route
 
 @Composable
 fun HomeScreen() {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Home Screen")
-    }
+    PantallaInicial()
+
+
 }
