@@ -5,16 +5,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.example.screenoneempcauca.ui.HomeScreen
-import com.example.screenoneempcauca.ui.components.LoginTextField
 import com.example.screenoneempcauca.ui.login.LoginScreen
 
-import com.example.screenoneempcauca.ui.signup.Terminos_yCondionesScreen
 import com.example.screenoneempcauca.ui.signup.SignUpScreen
 sealed class Route {
     data class LoginScreen(val name: String = "Login") : Route()
@@ -31,7 +28,9 @@ fun MyNavigation(navHostController: NavHostController) {
         navController = navHostController,
         startDestination = "login_flow",
     ) {
-        navigation(startDestination = Route.LoginAppSesion().name, route = "login_flow") {
+        navigation(startDestination = Route.LoginScreen().name, route = "login_flow") {
+
+
 
 
 

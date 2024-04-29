@@ -73,10 +73,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    //LoginApp()
+                    //LoginApp(navController = rememberNavController())
 
                     //PantallaInicial()
-                    //OptionMenu()
+
                     val navController = rememberNavController()
                     MyNavigation(navController)
 
@@ -126,6 +126,14 @@ fun SearchBarPreview() {
 }*/
 
 
+
+@Preview1(showBackground = true)
+@Composable
+fun MyNavegationPreview() {
+    ScreenOneEmpCaucaTheme {
+        MyNavigation(navHostController = rememberNavController())
+    }
+}
 
 @Preview1(showBackground = true)
 @Composable

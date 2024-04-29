@@ -24,12 +24,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.screenoneempcauca.Route.LoginScreen
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
 
 
 @Composable
-fun LoginApp(onSignUpClick: () -> Unit) {
+fun LoginApp(navController: NavController) {
     Column(
         modifier= Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -78,7 +80,7 @@ fun LoginApp(onSignUpClick: () -> Unit) {
 
         Row (){
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = { /*TODO*/},
                 ) {
                 Text(text = "Iniciar sesion",
                     fontSize = 20.sp)
@@ -106,8 +108,6 @@ fun LoginApp(onSignUpClick: () -> Unit) {
 @Composable
 fun LoginAppPreview(){
     ScreenOneEmpCaucaTheme {
-        LoginApp {
-
-        }
+        LoginApp(navController = rememberNavController())
     }
 }
