@@ -15,8 +15,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,11 +39,16 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.screenoneempcauca.R
 import com.example.screenoneempcauca.ui.components.HeaderText
 import com.example.screenoneempcauca.ui.components.LoginTextField
+import com.example.screenoneempcauca.ui.components.MyBack
 import com.example.screenoneempcauca.ui.login.defaultPadding
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
+
+
 
 
 @Composable
@@ -77,6 +86,8 @@ fun SignUpScreen(
                 color = MaterialTheme.colorScheme.error,
             )
         }
+
+        MyBack(navController = rememberNavController())
         Image(
             painter = painterResource(id = R.drawable.logo_png),
             contentDescription = "Logo"

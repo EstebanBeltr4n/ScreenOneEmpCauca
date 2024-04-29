@@ -62,6 +62,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.example.screenoneempcauca.R
 import com.example.screenoneempcauca.Route
+import com.example.screenoneempcauca.ui.components.MyBack
 
 
 val defaultPadding = 16.dp
@@ -83,6 +84,8 @@ fun LoginScreen(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
     val isFieldsEmpty = userName.isNotEmpty() && password.isNotEmpty()
 
     val context = LocalContext.current
+
+    MyBack(navController = rememberNavController())
 
     Column(
         modifier = Modifier

@@ -152,6 +152,7 @@ fun PantallaInicial(){
 
     Scaffold(
         topBar = {
+
             BarraSuperior(texto = textoBusqueda, onTextoBusquedaChange = {textoBusqueda = it})
             
         },

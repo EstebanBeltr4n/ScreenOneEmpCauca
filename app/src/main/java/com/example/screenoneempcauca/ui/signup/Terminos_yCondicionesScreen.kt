@@ -17,9 +17,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
+import com.example.screenoneempcauca.ui.components.MyBack
 
 @Composable
 fun Terminos_yCondionesScreen(onBtnClick: () -> Unit) {
+    MyBack(navController = rememberNavController())
     Box(
         modifier = Modifier
             .fillMaxSize()
