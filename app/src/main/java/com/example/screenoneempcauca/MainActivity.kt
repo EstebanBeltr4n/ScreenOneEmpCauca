@@ -50,14 +50,15 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import com.example.screenoneempcauca.R.string.placeholder_search
 import com.example.screenoneempcauca.screens.BarraInferior
 import com.example.screenoneempcauca.screens.BarraSuperior
 import com.example.screenoneempcauca.screens.ContenidoPrincipal
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
+import androidx.compose.ui.tooling.preview.Preview as Preview1
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
@@ -72,10 +73,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    //LoginApp()
-                    //Menu()
-                    PantallaInicial()
-                    
+                    //LoginApp(navController = rememberNavController())
+
+                    //PantallaInicial()
+
+                    val navController = rememberNavController()
+                    MyNavigation(navController)
 
                 }
             }
@@ -83,8 +86,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun  SearchBar(
+
+
+/*@Composable
+}fun  SearchBar(
     modifier: Modifier=Modifier.padding(top=50.dp)
 ){
     TextField(
@@ -109,20 +114,28 @@ fun  SearchBar(
             .clip(RoundedCornerShape(16.dp)) // Ajusta el valor del radio según tus necesidades
     )
 
-}
+}*/
 
 
-@Preview(showBackground = true)
+/*@Preview(showBackground = true)
 @Composable
 fun SearchBarPreview() {
     ScreenOneEmpCaucaTheme {
         SearchBar()
     }
+}*/
+
+
+
+@Preview1(showBackground = true)
+@Composable
+fun MyNavegationPreview() {
+    ScreenOneEmpCaucaTheme {
+        MyNavigation(navHostController = rememberNavController())
+    }
 }
 
-
-
-@Preview(showBackground = true)
+@Preview1(showBackground = true)
 @Composable
 fun PantallaInicialPreview() {
     ScreenOneEmpCaucaTheme {
@@ -132,25 +145,35 @@ fun PantallaInicialPreview() {
 
 @Composable
 fun PantallaInicial(){
+
     var textoBusqueda by rememberSaveable {
         mutableStateOf("")
     }
 
     Scaffold(
         topBar = {
+
             BarraSuperior(texto = textoBusqueda, onTextoBusquedaChange = {textoBusqueda = it})
+            
         },
         bottomBar = {
+
+
             BarraInferior(
                 onClickPerfil = { /*TODO*/ },
                 onClickChat = { /*TODO*/ },
-                onClickMenu = { /*TODO*/ },
-                onClickCargar = { /*TODO*/ })
+
+                onClickCargar = { /*TODO*/ },
+                onClickSalir = {/*TODO*/ }
+            )
         }
     ) { innerPadding ->
         ContenidoPrincipal(modifier = Modifier.padding(innerPadding))
     }
 }
+
+
+
 
 
 

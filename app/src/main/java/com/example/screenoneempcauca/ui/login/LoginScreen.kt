@@ -1,8 +1,5 @@
-package com.example.screenoneempcauca
+package com.example.screenoneempcauca.ui.login
 
-import android.graphics.drawable.Icon
-import android.os.Bundle
-import android.widget.EditText
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
@@ -25,7 +22,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Text
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -39,20 +35,19 @@ import androidx.compose.ui.unit.dp
 
 
 import android.widget.Toast
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.filled.ArrowBack
 
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.res.painterResource
@@ -63,9 +58,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
-
-
-
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
+import com.example.screenoneempcauca.R
+import com.example.screenoneempcauca.Route
+import com.example.screenoneempcauca.ui.components.MyBack
 
 
 val defaultPadding = 16.dp
@@ -74,7 +71,7 @@ val itemSpacing = 8.dp
 
 
 @Composable
-fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
+fun LoginScreen(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
     val (userName, setUsername) = rememberSaveable {
         mutableStateOf("")
     }
@@ -88,12 +85,21 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
 
     val context = LocalContext.current
 
+    MyBack(navController = rememberNavController())
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(defaultPadding),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+
+
+
+
+
+
         Image(
             painter = painterResource(id = R.drawable.logo_png),
             contentDescription = "Logo"
@@ -146,23 +152,7 @@ fun LoginSesion(onLoginClick: () -> Unit, onSignUpClick: () -> Unit) {
         ) {
             Text("Ingresar")
         }
-        AlternativeLoginOptions(
-            onIconClick = { index ->
-                when (index) {
-                    0 -> {
-                        Toast.makeText(context, "Google Login - Click", Toast.LENGTH_SHORT).show()
-                    }
 
-
-
-
-                }
-            },
-            onSignUpClick = onSignUpClick,
-            modifier = Modifier
-                .fillMaxSize()
-                .wrapContentSize(align = Alignment.BottomCenter)
-        )
 
     }
 }
@@ -212,7 +202,7 @@ fun AlternativeLoginOptions(
 @Composable
 fun PrevLoginSesion() {
     ScreenOneEmpCaucaTheme {
-        LoginSesion({}, {})
+        LoginScreen({}, {})
     }
 }
 

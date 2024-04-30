@@ -19,7 +19,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
+import com.example.screenoneempcauca.OptionMenu
 import com.example.screenoneempcauca.R
+import com.example.screenoneempcauca.ui.components.MyBack
 
 @Composable
 fun BarraSuperior(
@@ -54,10 +57,12 @@ fun BarraSuperior(
                 .clip(RoundedCornerShape(16.dp)) // Ajusta el valor del radio según tus necesidades
         )
     }
+
+    OptionMenu()
 }
 
 @Preview
 @Composable
 fun BarraArribaPreview(){
-    BarraSuperior(texto = "Texto", onTextoBusquedaChange = {})
+    BarraSuperior(texto = "Busqueda", onTextoBusquedaChange = {})
 }
