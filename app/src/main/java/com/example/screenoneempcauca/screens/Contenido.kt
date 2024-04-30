@@ -39,7 +39,7 @@ fun ContenidoPrincipal(modifier: Modifier = Modifier) {
             text = "Bienvenido Sebastian", color = Color.Black,
             fontSize = 20.sp
         )
-        //Spacer(modifier = modifier.height(16.dp))
+
         Image(
             painter = painterResource(id = R.drawable.expocaucapublicidad),
             contentDescription = "Lo nuevo",
@@ -54,8 +54,6 @@ fun ContenidoPrincipal(modifier: Modifier = Modifier) {
             painter = painterResource(id = R.drawable.logo_png),
             contentDescription = "Logo"
         )
-
-
         Text(text = "Emprendimiento del Cauca")
         Text(text = """Apoyamos la ecoonomia de la region""")
     }

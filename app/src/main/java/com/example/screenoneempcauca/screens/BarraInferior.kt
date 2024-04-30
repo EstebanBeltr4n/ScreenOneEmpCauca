@@ -24,8 +24,9 @@ import com.example.screenoneempcauca.R
 fun BarraInferior(
     onClickPerfil: ()->Unit,
     onClickChat: ()->Unit,
-    onClickMenu: ()->Unit,
+
     onClickCargar: ()->Unit,
+    onClickSalir: ()->Unit,
     modifier: Modifier = Modifier){
     Row (horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
@@ -33,7 +34,7 @@ fun BarraInferior(
 
         OutlinedButton(
             onClick = onClickPerfil,
-            border = BorderStroke(1.dp, Color.White)
+            border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -46,9 +47,10 @@ fun BarraInferior(
             }
         }
 
+
         OutlinedButton(
             onClick = onClickChat,
-            border = BorderStroke(1.dp, Color.White)
+            border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -61,31 +63,10 @@ fun BarraInferior(
             }
         }
 
-        /*OutlinedButton(
-            onClick = onClickMenu,
-            border = BorderStroke(1.dp, Color.White)
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            )
-            {
-
-                Image(
-                    painter = painterResource(id = R.drawable.icons8_men__en_c_rculos_100),
-                    contentDescription = "Menu"
-                )
-                Text(text = "Menu",
-                    color = MaterialTheme.colorScheme.secondary,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-            }
-        }*/
-
 
         OutlinedButton(
             onClick = onClickCargar,
-            border = BorderStroke(1.dp, Color.White)
+            border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -99,8 +80,8 @@ fun BarraInferior(
         }
 
         OutlinedButton(
-            onClick = { /*TODO*/ },
-            border = BorderStroke(1.dp, Color.White)
+            onClick = { onClickSalir},
+            border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally

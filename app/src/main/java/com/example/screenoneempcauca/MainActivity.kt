@@ -162,8 +162,10 @@ fun PantallaInicial(){
             BarraInferior(
                 onClickPerfil = { /*TODO*/ },
                 onClickChat = { /*TODO*/ },
-                onClickMenu = { },
-                onClickCargar = { /*TODO*/ })
+
+                onClickCargar = { /*TODO*/ },
+                onClickSalir = {/*TODO*/ }
+            )
         }
     ) { innerPadding ->
         ContenidoPrincipal(modifier = Modifier.padding(innerPadding))
