@@ -13,6 +13,8 @@ import com.example.screenoneempcauca.ui.HomeScreen
 import com.example.screenoneempcauca.ui.login.LoginScreen
 
 import com.example.screenoneempcauca.ui.signup.SignUpScreen
+import com.example.screenoneempcauca.ui.signup.Terminos_yCondionesScreen
+
 sealed class Route {
     data class LoginScreen(val name: String = "Login") : Route()
     data class SignUpScreen(val name: String = "SignUp") : Route()
@@ -88,6 +90,12 @@ fun MyNavigation(navHostController: NavHostController) {
                     }
 
                 )
+            }
+
+            composable(route=Route.Terminos_yCondicionesScreen().name){
+                Terminos_yCondionesScreen {
+                    navHostController.navigateUp()
+                }
             }
         }
 
