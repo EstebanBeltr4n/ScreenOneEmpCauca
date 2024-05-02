@@ -2,6 +2,7 @@ package com.example.screenoneempcauca.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,33 +31,41 @@ fun ContenidoPrincipal(modifier: Modifier = Modifier) {
 
 
     val mContext = LocalContext.current
-    Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Bienvenido Sebastian", color = Color.Black,
-            fontSize = 20.sp
-        )
 
-        Image(
-            painter = painterResource(id = R.drawable.expocaucapublicidad),
-            contentDescription = "Lo nuevo",
-            contentScale = ContentScale.Crop,
-            modifier = modifier
-                .height(400.dp)
-                .width(400.dp)
-                .clip(RoundedCornerShape(16.dp))
-        )
+    Box {
+        Column(
+            modifier = modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Bienvenido Sebastian", color = Color.Gray,
+                fontSize = 28.sp
+            )
 
-        Image(
-            painter = painterResource(id = R.drawable.logo_png),
-            contentDescription = "Logo"
-        )
-        Text(text = "Emprendimiento del Cauca")
-        Text(text = """Apoyamos la ecoonomia de la region""")
+            Image(
+                painter = painterResource(id = R.drawable.logo_png),
+                contentDescription = "Logo"
+            )
+            Text(text = "Emprendimiento del Cauca")
+            Text(text = "Apoyamos la economia de la region")
+
+            Image(
+                painter = painterResource(id = R.drawable.expocaucapublicidad),
+                contentDescription = "Lo nuevo",
+                contentScale = ContentScale.Crop,
+                modifier = modifier
+                    .height(350.dp)
+                    .width(350.dp)
+                    .clip(RoundedCornerShape(16.dp))
+            )
+            Text(text = "¡Proximamente!")
+
+
+        }
+
     }
+
 
 
 }

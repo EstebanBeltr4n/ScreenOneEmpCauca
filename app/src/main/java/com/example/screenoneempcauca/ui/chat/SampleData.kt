@@ -30,35 +30,35 @@ object SampleData {
         ),
         Message(
             "Sara Medina",
-            "It's available from API 21+ :)"
+            "Hola, ¿conoces algún emprendimiento interesante que recomendarías?"
         ),
         Message(
-            "Lexi",
-            "Writing Kotlin for UI seems so natural, Compose where have you been all my life?"
+            "Silvia",
+            "¿Has oído hablar de algún emprendimiento innovador que valga la pena conocer?"
         ),
         Message(
-            "Lexi",
-            "Android Studio next version's name is Arctic Fox"
+            "Paula",
+            "¿Sabes de algún emprendimiento local que esté ganando popularidad?"
         ),
         Message(
-            "Lexi",
-            "Android Studio Arctic Fox tooling for Compose is top notch ^_^"
+            "Tatiana",
+            "Estoy buscando nuevos emprendimientos para invertir, ¿tienes alguna recomendación?"
         ),
         Message(
-            "Lexi",
-            "I didn't know you can now run the emulator directly from Android Studio"
+            "Angie",
+            "¿Cuál es el emprendimiento más emocionante que has descubierto recientemente?"
         ),
         Message(
-            "Lexi",
-            "Compose Previews are great to check quickly how a composable layout looks like"
+            "Monica",
+            "Estoy interesado en conocer nuevos emprendimientos en el campo de la tecnología, ¿tienes alguna sugerencia?"
         ),
         Message(
-            "Lexi",
-            "Previews are also interactive after enabling the experimental setting"
+            "Lina",
+            "¿Has tenido alguna experiencia positiva con algún emprendimiento en particular?"
         ),
         Message(
-            "Lexi",
-            "Have you tried writing build.gradle with KTS?"
+            "Liceth",
+            "¿Conoces algún emprendimiento social que esté haciendo un impacto positivo en la comunidad?"
         )
     )
 }
