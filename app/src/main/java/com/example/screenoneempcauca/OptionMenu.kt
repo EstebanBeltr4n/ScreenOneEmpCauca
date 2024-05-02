@@ -41,33 +41,41 @@ fun OptionMenu(){
                 onDismissRequest = { showMenu=false }
             ) {
 
-                DropdownMenuItem(
-                    text = { Text( "Economia") },
-                    onClick = { Toast.makeText(context,"Economia",Toast.LENGTH_SHORT).show() })
+                DropdownMenuItem(text = { Text( ">  Economia amigable") },
+                    onClick = { Toast.makeText(context,"Economia",Toast.LENGTH_SHORT).show()
+                        }
 
-                DropdownMenuItem(text = { Text( "Servicio") },
+                    )
+
+                DropdownMenuItem(text = { Text( ">  Servicios alimentos") },
                     onClick = { Toast.makeText(context,"Servicios",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Salud") },
+                DropdownMenuItem(text = { Text( ">  Salud y bienestar") },
                     onClick = { Toast.makeText(context,"Salud",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Deportes") },
+                DropdownMenuItem(text = { Text( ">  Deportes") },
                     onClick = { Toast.makeText(context,"Deportes",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Arte") },
+                DropdownMenuItem(text = { Text( ">  Arte y entretenimiento") },
                     onClick = { Toast.makeText(context,"Arte",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Educacion") },
+                DropdownMenuItem(text = { Text( ">  Educacion") },
                     onClick = { Toast.makeText(context,"Educación",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Moda") },
+                DropdownMenuItem(text = { Text( ">  Moda y belleza") },
                     onClick = { Toast.makeText(context,"Moda",Toast.LENGTH_SHORT).show() })
 
-                DropdownMenuItem(text = { Text( "Hogar") },
+                DropdownMenuItem(text = { Text( ">  Hogar") },
                     onClick = { Toast.makeText(context,"Hogar",Toast.LENGTH_SHORT).show() })
+
+                Text( "___________________")
+
 
                 DropdownMenuItem(text = { Text( "Suscribirse") },
                     onClick = { Toast.makeText(context,"Suscribirse",Toast.LENGTH_SHORT).show() })
+
+                DropdownMenuItem(text = { Text( "Desarrollado por:") },
+                    onClick = { Toast.makeText(context,"Desarrollado",Toast.LENGTH_SHORT).show() })
             }
         }
         

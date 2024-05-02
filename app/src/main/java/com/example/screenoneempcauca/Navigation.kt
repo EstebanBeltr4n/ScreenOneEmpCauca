@@ -13,13 +13,16 @@ import com.example.screenoneempcauca.ui.HomeScreen
 import com.example.screenoneempcauca.ui.login.LoginScreen
 
 import com.example.screenoneempcauca.ui.signup.SignUpScreen
+import com.example.screenoneempcauca.ui.signup.Terminos_yCondionesScreen
+
 sealed class Route {
     data class LoginScreen(val name: String = "Login") : Route()
     data class SignUpScreen(val name: String = "SignUp") : Route()
     data class Terminos_yCondicionesScreen(val name:String = "Terminos") : Route()
 
     data class HomeScreen(val name: String = "Home") : Route()
-    data class LoginAppSesion(val name: String = "LoginAppSesion") : Route()
+    data class LoginApp(val name: String = "LoginApp") : Route()
+    data class CollaboratorsScreen(val name: String = "Collaborators") : Route()
 }
 
 @Composable
@@ -28,7 +31,21 @@ fun MyNavigation(navHostController: NavHostController) {
         navController = navHostController,
         startDestination = "login_flow",
     ) {
-        navigation(startDestination = Route.LoginScreen().name, route = "login_flow") {
+        navigation(startDestination = Route.LoginApp().name, route = "login_flow") {
+
+            composable(route = Route.LoginApp().name) {
+                LoginApp(
+                    onLoginClick = {
+                                   navHostController.navigate(
+                                       Route.LoginScreen().name
+                                   )
+                                   },
+                    onSignUpClick = {
+                        navHostController.navigate(
+                        Route.SignUpScreen().name
+                    ) })
+            }
+
 
 
 
@@ -74,11 +91,19 @@ fun MyNavigation(navHostController: NavHostController) {
 
                 )
             }
+
+            composable(route=Route.Terminos_yCondicionesScreen().name){
+                Terminos_yCondionesScreen {
+                    navHostController.navigateUp()
+                }
+            }
         }
 
         composable(route = Route.HomeScreen().name) {
             HomeScreen()
         }
+
+
     }
 }
 

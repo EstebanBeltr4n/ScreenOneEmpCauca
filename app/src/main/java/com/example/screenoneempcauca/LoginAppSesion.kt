@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,7 +38,11 @@ import com.example.screenoneempcauca.ui.theme.ScreenOneEmpCaucaTheme
 
 
 @Composable
-fun LoginApp(navController: NavController) {
+fun LoginApp(
+    onLoginClick: () -> Unit,
+    onSignUpClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    ) {
     Column(
         modifier= Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -81,9 +86,7 @@ fun LoginApp(navController: NavController) {
 
 
         TextButton(
-            onClick = {
-                // Lógica a ejecutar cuando se hace clic en el botón
-            },
+            onClick = onLoginClick,
             modifier = Modifier.background(Color.Transparent),
             contentPadding = PaddingValues(0.dp)
         ) {
@@ -97,8 +100,10 @@ fun LoginApp(navController: NavController) {
 
 
         Row (){
+
             OutlinedButton(
-                onClick = { /*TODO*/},
+                onClick = onLoginClick,
+
                 ) {
                 Text(text = "Iniciar sesion",
                     fontSize = 20.sp)
@@ -106,7 +111,7 @@ fun LoginApp(navController: NavController) {
             }
             Spacer(modifier = Modifier.width(20.dp))
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = onSignUpClick
                 ) {
                 Text(text = "Crear cuenta",
                     fontSize = 20.sp)
@@ -126,6 +131,6 @@ fun LoginApp(navController: NavController) {
 @Composable
 fun LoginAppPreview(){
     ScreenOneEmpCaucaTheme {
-        LoginApp(navController = rememberNavController())
+        LoginApp(onLoginClick = { /*TODO*/ }, onSignUpClick = { /*TODO*/ })
     }
 }
