@@ -160,6 +160,9 @@ fun Conversation2(messages: List<Message>) {
     }
 }
 
+
+
+
 @Preview
 @Composable
 fun PreviewConversation() {
