@@ -88,42 +88,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-/*@Composable
-}fun  SearchBar(
-    modifier: Modifier=Modifier.padding(top=50.dp)
-){
-    TextField(
-        value = "",
-        onValueChange = {},
-        leadingIcon = {
-            Icon(
-                imageVector = Icons.Default.Search,
-                contentDescription = null
-            )
-        },
-        colors = TextFieldDefaults.colors(
-            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            focusedContainerColor = MaterialTheme.colorScheme.surface
-        ),
-        placeholder = {
-            Text(stringResource(placeholder_search))
-        },
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = 56.dp)
-            .clip(RoundedCornerShape(16.dp)) // Ajusta el valor del radio según tus necesidades
-    )
 
-}*/
-
-
-/*@Preview(showBackground = true)
-@Composable
-fun SearchBarPreview() {
-    ScreenOneEmpCaucaTheme {
-        SearchBar()
-    }
-}*/
 
 
 

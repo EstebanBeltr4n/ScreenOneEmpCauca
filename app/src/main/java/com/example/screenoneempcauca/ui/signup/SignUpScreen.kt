@@ -198,7 +198,7 @@ fun SignUpScreen(
 
 
         }
-        ClickableText(
+        /*ClickableText(
             signInAnnotation,
         ) { offset ->
             signInAnnotation.getStringAnnotations(offset, offset).forEach {
@@ -207,7 +207,7 @@ fun SignUpScreen(
                     onLoginClick()
                 }
             }
-        }
+        }*/
 
     }
 }

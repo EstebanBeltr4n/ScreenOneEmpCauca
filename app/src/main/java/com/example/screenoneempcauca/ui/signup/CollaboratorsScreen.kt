@@ -55,7 +55,7 @@ fun CollaboratorsScreen() {
         Text(text = "Desarrollado por:")
         Text(text = "Esteban Eduardo Escarraga")
         Text(text = "Edgardo Gentil Muñoz")
-        Text(text = "Esteban Eduardo Escarraga")
+        Text(text = "Liccy Andrea Morales")
     }
 }
 
