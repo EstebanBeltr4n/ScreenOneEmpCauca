@@ -59,7 +59,8 @@ fun ContenidoPrincipal(modifier: Modifier = Modifier) {
                     .width(350.dp)
                     .clip(RoundedCornerShape(16.dp))
             )
-            Text(text = "¡Proximamente!")
+            Text(text = "¡" +
+                    "Proximamente!")
 
 
         }
