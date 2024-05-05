@@ -1,6 +1,7 @@
 package com.example.screenoneempcauca
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -9,11 +10,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
+import com.example.screenoneempcauca.SplashScreen.SplashScreen
 import com.example.screenoneempcauca.ui.HomeScreen
 import com.example.screenoneempcauca.ui.login.LoginScreen
 
 import com.example.screenoneempcauca.ui.signup.SignUpScreen
 import com.example.screenoneempcauca.ui.signup.Terminos_yCondionesScreen
+import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.seconds
 
 sealed class Route {
     data class LoginScreen(val name: String = "Login") : Route()
@@ -23,6 +27,7 @@ sealed class Route {
     data class HomeScreen(val name: String = "Home") : Route()
     data class LoginApp(val name: String = "LoginApp") : Route()
     data class CollaboratorsScreen(val name: String = "Collaborators") : Route()
+    data class SplashScreen(val name: String = "Splash") : Route()
 }
 
 @Composable
@@ -31,7 +36,17 @@ fun MyNavigation(navHostController: NavHostController) {
         navController = navHostController,
         startDestination = "login_flow",
     ) {
-        navigation(startDestination = Route.LoginApp().name, route = "login_flow") {
+        navigation(startDestination = Route.SplashScreen().name, route = "login_flow") {
+
+            composable(route=Route.SplashScreen().name){
+                LaunchedEffect(key1 = null) {
+                    delay(3.seconds)
+                    navHostController.popBackStack()
+                    navHostController.navigate(Route.LoginApp().name)
+                }
+                SplashScreen()
+            }
+
 
             composable(route = Route.LoginApp().name) {
                 LoginApp(
