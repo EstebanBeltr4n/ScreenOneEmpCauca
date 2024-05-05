@@ -22,18 +22,18 @@ import com.example.screenoneempcauca.R
 
 @Composable
 fun BarraInferior(
-    onClickPerfil: ()->Unit,
-    onClickChat: ()->Unit,
+    onPerfilClick: ()->Unit,
+    onChatClick: ()->Unit,
 
-    onClickCargar: ()->Unit,
-    onClickSalir: ()->Unit,
+    onCargarClick: ()->Unit,
+    onSalirClick: ()->Unit,
     modifier: Modifier = Modifier){
     Row (horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()){
 
         OutlinedButton(
-            onClick = onClickPerfil,
+            onClick = onPerfilClick,
             border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
@@ -49,7 +49,7 @@ fun BarraInferior(
 
 
         OutlinedButton(
-            onClick = onClickChat,
+            onClick = onChatClick,
             border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
@@ -65,7 +65,7 @@ fun BarraInferior(
 
 
         OutlinedButton(
-            onClick = onClickCargar,
+            onClick = onCargarClick,
             border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(
@@ -80,7 +80,7 @@ fun BarraInferior(
         }
 
         OutlinedButton(
-            onClick = { onClickSalir},
+            onClick = { onSalirClick},
             border = BorderStroke(1.dp, Color.Transparent)
         ) {
             Column(

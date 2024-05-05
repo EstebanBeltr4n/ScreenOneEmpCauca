@@ -12,9 +12,7 @@ import com.example.screenoneempcauca.Route
 
 @Composable
 fun HomeScreen() {
-    PantallaInicial {
-
-    }
+    PantallaInicial ({},{})
 
 
 }

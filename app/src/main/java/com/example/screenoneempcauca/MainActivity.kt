@@ -107,15 +107,14 @@ fun MyNavegationPreview() {
 @Composable
 fun PantallaInicialPreview() {
     ScreenOneEmpCaucaTheme {
-        PantallaInicial {
-
-        }
+        PantallaInicial ({}, {})
     }
 }
 
 @Composable
 fun PantallaInicial(
     onLoginClick: () -> Unit,
+    onChatClick:() -> Unit
 ){
 
     var textoBusqueda by rememberSaveable {
@@ -131,13 +130,13 @@ fun PantallaInicial(
         bottomBar = {
 
 
-            BarraInferior(
-                onClickPerfil = { /*TODO*/ },
-                onClickChat = { /*TODO*/ },
+            /*BarraInferior(
+                onPerfilClick = { /*TODO*/ },
+                onChatClick = onChatClick,
 
-                onClickCargar = { /*TODO*/ },
-                onClickSalir = onLoginClick
-            )
+                onCargarClick = { /*TODO*/ },
+                onSalirClick = onLoginClick
+            )*/
         }
     ) { innerPadding ->
         ContenidoPrincipal(modifier = Modifier.padding(innerPadding))
